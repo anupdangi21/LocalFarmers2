@@ -41,7 +41,7 @@ app.use('/customer', express.static(path.join(__dirname, 'customer')));
 app.use('/admin', express.static(path.join(__dirname, 'admin')));
 
 app.get("/", function(req, res){
-    res.sendFile(__dirname + '/customer/customer.html');
+    res.sendFile(__dirname + '/customer/customer1.html');
 });
 
 app.post('/submit', async function(req, res) {
@@ -74,7 +74,7 @@ app.post('/submit', async function(req, res) {
             });
             await newUser.save();
             console.log("User registered successfully");
-            return res.redirect("/customer.html");
+            return res.redirect("/customer1.html");
         } 
         // Invalid form submission
         console.log("please register first")

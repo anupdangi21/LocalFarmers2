@@ -3,7 +3,7 @@ function logout(event) {
     event.preventDefault(); // Prevent the default behavior of the link
     if (window.confirm("Are you sure you want to exit?")) {
         // Redirect to /customer/customer.html
-        window.location.href = '/customer/customer.html';
+        window.location.href = '/customer/customer1.html';
     }
 }
 
