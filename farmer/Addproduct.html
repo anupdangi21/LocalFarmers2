@@ -11,13 +11,15 @@
 	</title>
 
 	<style>
+		@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
 		/* Styling the Body element i.e. Color,
 		Font, Alignment */
 		body {
 			background-color: whitesmoke;
-			font-family: Verdana;
+			font-family: "Montserrat", sans-serifs;
 			text-align: center;
+			font-size: bold;
 		}
 
 		/* Styling the Form (Color, Padding, Shadow) */
@@ -61,7 +63,7 @@
 		}
 
 		button {
-			background-color: #05c46b;
+			background-color: #1c4301;
 			border: 1px solid #777;
 			border-radius: 2px;
 			font-family: inherit;
@@ -88,7 +90,7 @@
 			<!-- Input Type Text -->
 			<input type="text"
 				id="name"
-				placeholder="Enter name of Your product" />
+				placeholder="" />
 		</div>
 
 
@@ -103,17 +105,6 @@
 				placeholder="In kg's" />
 		</div>
 
-		<div class="form-control">
-			<label for="Descp" id="label-Descp">
-				Description
-			</label>
-
-			<!-- Input Type Text -->
-			<input type="text"
-				id="Descp"
-				placeholder=" Description" />
-		</div>
-
 		
 		<div class="form-control">
 			<label for="Price" id="label-Price"> 
@@ -125,6 +116,18 @@
 				id="Price"
 				placeholder=" In Rs" />
 		</div>
+
+		<div class="form-control">
+			<label for="Descp" id="label-Descp">
+				Description
+			</label>
+
+			<!-- Input Type Text -->
+			<input type="text"
+				id="Descp"
+				placeholder=" " />
+		</div>
+
 
 		
 
