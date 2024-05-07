@@ -1,5 +1,10 @@
-body{
-    margin: 0%;
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 .topnav img {
@@ -12,9 +17,9 @@ body{
 
 .topnav {
     width: 100%;
-    background-color: olive;
+    background-color: #1c4301;
     overflow: hidden;
-    border: 2px solid grey;
+    border: 1px solid grey;
     height: 90px;
     justify-content: center;
   }
@@ -23,8 +28,8 @@ body{
     position: relative;
     display: inline-block;
     margin-left: 290px;
-
-    color: black;
+    font-family: "Montserrat", sans-serifs;
+    color: white;
     font-size: 17px;
     text-align: center;
     text-decoration: none;
@@ -34,6 +39,13 @@ body{
 .topnav img{
     border-radius: 6.5px;
 }
+
+.topnav img:hover{
+  transform: scale(1.2); /* Increase the size of the logo on hover */
+  transition: transform 0.4s ease-in-out; /* Add a smooth transition effect */;
+}
+
+
 a::before {
     content: '';
     position: absolute;
@@ -53,32 +65,38 @@ a:hover::before {
   transform: scaleX(0.5);
 }
     
-
-.vid{
-    overflow: hidden;
-    height: 650px;
+.container-wrapper{
+  display: flex;
+  margin-bottom: 77px;
+}
+.con,
+.container {
+  width: 450px;
+  height: 480px;
+  border-radius: 20px;
+  margin-top: 150px;
+  margin-left: 13%;
+  position: relative;
+  box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5);
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+.con:hover,
+.container:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 10px 20px 2px rgba(0, 0, 0, 0.25);
+}
+.con:hover{
+  transform: translateY(-5px);
+  box-shadow: 0px 10px 20px 2px rgba(0, 0, 0, 0.25);
 }
 
-  
-.container {
-    background-color:silver;
-    width: 450px;
-    height: 480px;
-    border-radius: 20px;
-    margin-top: 150px;
-    margin-left: 36%;
+.container:hover{
+  transform: translateY(-5px);
+  box-shadow: 0px 10px 20px 2px rgba(0, 0, 0, 0.25);
 
-  }
-  
-.container p {
-    justify-content: center;
-    margin-top: 20px;
-    font-style: italic;
-    text-align: center;
-    
-  }
-
+}
 .container button{
+    position: absolute;
     border: none;
     height: 49px;
     width: 150px;
@@ -87,21 +105,47 @@ a:hover::before {
     cursor: pointer;
     transition: 0.2s ease-in-out;
     border-radius: 12px;
-    margin-left: 150px;
-    margin-top: 100px;
-  }
-  
+    margin-left: 30%;
+    margin-top: -93px;
+    font-family: "Montserrat", sans-serifs;
 
-  
+   
+  }
+.container img{
+  width: 450px;
+  height: 100%;
+  border-radius: 20px;  
+}
+.con img{
+  width: 450px;
+    height: 100%;
+    border-radius: 20px;
+
+}
+.con button{
+  position: absolute;
+  border: none;
+  height: 49px;
+  width: 150px;
+  background: goldenrod;
+  color: white;
+  cursor: pointer;
+  transition: 0.2s ease-in-out;
+  border-radius: 12px;
+  margin-left: 30%;
+  margin-top: -93px;
+  font-family: "Montserrat", sans-serifs;
+}
+
+
 button:hover {
     background-color: gold;
     color: white;
 }
 
-footer {
-    text-align: center;
-    padding: 9px;
-    background-color: whitesmoke;
-    margin-top: 10%;
+.navitems{
+  margin-top: -42px;
+  margin-left: 140px;
+  font-family: "Montserrat", sans-serifs;
 
-  }
+}
