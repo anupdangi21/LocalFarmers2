@@ -181,3 +181,28 @@ main{
     cursor: pointer;
     margin-left: 10px;
 }
+main .recent_farmers{
+    margin-top: 1rem;
+}
+main .recent_farmers table{
+    margin-top: 1rem;
+    background-color: var(--clr-white);
+    width: 120%;
+    height: 10px;
+    border-radius: var(--card-border-radius);
+    padding: 1.3rem;
+    text-align: center;
+    box-shadow: var(--box-shadow);
+    transition: all .3s ease;
+}
+
+main table tbody tr{
+    height: 3.8rem;
+    margin-bottom: 1px solid var(--clr-white);
+    color: var(--clr-dark-variant);
+}
+main table tbody td{
+    height: 1.5rem;
+}
+
+
