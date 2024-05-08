@@ -9,9 +9,15 @@ const app = express();
 app.use(bodyParser.urlencoded({ extended: true }));
 
 // MongoDB connection
-mongoose.connect('mongodb+srv://anupdangi28:farmers123@localfarmersapp.8bbteeb.mongodb.net/users');
-const db = mongoose.connection;
-db.once('open', () => console.log('Connected to MongoDB'));
+mongoose.connect('mongodb+srv://anupdangi28:farmers123@localfarmersapp.8bbteeb.mongodb.net/users')
+.then(() => {
+  console.log('Connected to MongoDB');
+})
+.catch((err) => {
+  console.error('Error connecting to MongoDB:', err);
+});
+
+const farmerApp = require('./farmer');
 
 //schema for admin
 const  AdminSchema = new mongoose.Schema({
@@ -39,33 +45,43 @@ const RegisterLoginData = mongoose.model('userRegister', registerUserSchema); //
 
 app.use('/customer', express.static(path.join(__dirname, 'customer')));
 app.use('/admin', express.static(path.join(__dirname, 'admin')));
+app.use('/farmer', express.static(path.join(__dirname,'farmer')))
 
 app.get("/", function(req, res){
     res.sendFile(__dirname + '/customer/customer1.html');
 });
 
-app.post('/submit', async function(req, res) {
-    const { username, password, name, email } = req.body;
+// Handle signin requests
+app.post('/signin', async function(req, res) {
+    const { username, password } = req.body;
     try {
         if (username && password) {
             const user = await LoginData.findOne({ username, password }).exec();
-            const admin = await admins.findOne({username, password}).exec();
+            const admin = await admins.findOne({ username, password }).exec();
             const register = await RegisterLoginData.findOne({username, password}).exec();
             if (user) {
-                // console.log("Login successful");
-                return res.redirect("/customer/afterlogin.html"); // Redirect if user is regular customer
-            } else if (admin) { 
-                // console.log("admin dashboard");
-                return res.redirect("./admin/admin.html"); //Redirect to admin dasboard if user is admin
-            } else if (register){
-                // console.log("login successful");
                 return res.redirect("/customer/afterlogin.html");
-            }else {
-                // If username or password is missing, send an error response
-                res.status(400).send('Missing username or password');
+            } else if (admin) {
+                return res.redirect("./admin/admin.html");
+            } else if (register) {
+                return res.redirect("/customer/afterlogin.html");
+            } else {
+                return res.status(400).send('Missing username or password');
             }
-        } 
-        if (name && email && username && password) {   //this condition saves the newly registered data of the customers in the db
+        } else {
+            return res.status(400).send('Missing username or password');
+        }
+    } catch (error) {
+        console.error('Error:', error);
+        return res.status(500).send('Internal server error');
+    }
+});
+
+// Handle registration requests
+app.post('/register', async function(req, res) {
+    const { name, email, username, password } = req.body;
+    try {
+        if (name && email && username && password) {
             const newUser = new RegisterLoginData({
                 name: name,
                 email: email,
@@ -75,13 +91,41 @@ app.post('/submit', async function(req, res) {
             await newUser.save();
             console.log("User registered successfully");
             return res.redirect("/customer1.html");
-        } 
-        // Invalid form submission
-        console.log("please register first")
-        res.redirect("/customer/register.html")
+        } else {
+            return res.status(400).send('Missing required fields');
+        }
     } catch (error) {
         console.error('Error:', error);
-        res.status(500).send('Internal server error');
+        return res.status(500).send('Internal server error');
+    }
+});
+
+//schema for the supplier
+const supplierSchema = new mongoose.Schema({
+    fullname: String,
+    email: String,
+    password: String,
+    username: String,
+    companyname: String
+});
+
+const Supplier = mongoose.model('Supplier', supplierSchema);
+app.post('/supplier', async function(req, res) {
+    const { fullname, email, password, username, companyname } = req.body;
+    if (fullname && email && password && username && companyname) {
+        const newSupplier = new Supplier({
+            fullname: fullname,
+            email: email,
+            password: password,
+            username: username,
+            companyname: companyname
+        });
+        await newSupplier.save();
+        console.log("Supplier registered successfully");
+        return res.redirect("/farmer/main.html");
+    } else {
+        console.log("Something error"); 
+        return res.status(400).send('Missing required fields');
     }
 });
 
