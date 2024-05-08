@@ -10,9 +10,7 @@
 <body>
     <nav>
         <ul>
-
             <li class="logo"><img src="/logo.png" alt="Logo"></li>
-
           <div class="items">
           <li><a href="customer1.html">Home</a></li>
           <li><a href="catagories.html">Categories</a></li>
@@ -30,22 +28,22 @@
       </nav>
       <div class="registerbox">
         <div class="registerform">
-            <form>
-                <h1>Register</h1>
+            <form action="/register" method="post">
+                <h1>Register here</h1>
                 <div class="inputbox">
-                    <input type="text" placeholder="Name" required>
+                    <input type="text" placeholder="Name" name="name" required>
                     <i class="fa-solid fa-user"></i>
                 </div>
                 <div class="inputbox">
-                    <input type="email" placeholder="Email" required>
+                    <input type="email" placeholder="Email" name="email" required>
                     <i class="fa-solid fa-envelope"></i>
                 </div>
                 <div class="inputbox">
-                    <input type="text" placeholder="Username" required>
+                    <input type="text" placeholder="Username" name="username" required>
                     <i class="fa-solid fa-user"></i>
                 </div>
                 <div class="inputbox">
-                    <input type="password" placeholder="Password" required>
+                    <input type="password" placeholder="Password" name="password" required>
                     <i class="fa-solid fa-lock"></i>
                 </div>
                 <button type="submit" class="btnregister">Register</button>
@@ -57,3 +55,6 @@
       </div>
 </body>
 </html>
+
+
+
