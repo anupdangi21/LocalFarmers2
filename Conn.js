@@ -4,6 +4,7 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const path = require('path');
 
+
 const app = express();
 
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -18,6 +19,7 @@ mongoose.connect('mongodb+srv://anupdangi28:farmers123@localfarmersapp.8bbteeb.m
 });
 
 const farmerApp = require('./farmer');
+const adminApp = require('./admin');
 
 //schema for admin
 const  AdminSchema = new mongoose.Schema({
