@@ -93,7 +93,7 @@ console.log(publicPath);
 app.use(express.static(publicPath));
 
 app.get('/', (req, res) => {
-    res.sendFile(`${publicPath}/customer.html`);
+    res.sendFile(`${publicPath}/customer1.html`);
 }); 
 
 app.get('/catagories ', (req, res) => {
