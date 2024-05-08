@@ -1,5 +1,8 @@
-body{
-    margin: 0%;
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 .topnav img {
@@ -12,9 +15,9 @@ body{
 
 .topnav {
     width: 100%;
-    background-color: olive;
+    background-color: #1c4301;
     overflow: hidden;
-    border: 2px solid grey;
+    border: 1px solid grey;
     height: 90px;
     justify-content: center;
   }
@@ -23,8 +26,8 @@ body{
     position: relative;
     display: inline-block;
     margin-left: 290px;
-
-    color: black;
+    font-family: "Montserrat", sans-serifs;
+    color: white;
     font-size: 17px;
     text-align: center;
     text-decoration: none;
@@ -34,6 +37,13 @@ body{
 .topnav img{
     border-radius: 6.5px;
 }
+
+.topnav img:hover{
+  transform: scale(1.2); /* Increase the size of the logo on hover */
+  transition: transform 0.4s ease-in-out; /* Add a smooth transition effect */;
+}
+
+
 a::before {
     content: '';
     position: absolute;
@@ -53,55 +63,414 @@ a:hover::before {
   transform: scaleX(0.5);
 }
     
-
-.vid{
-    overflow: hidden;
-    height: 650px;
+.container-wrapper{
+  display: flex;
+  margin-bottom: 97px;
+}
+.con,
+.container {
+  width: 450px;
+  height: 480px;
+  border-radius: 20px;
+  margin-top: 100px;
+  margin-left: 14%;
+  position: relative;
+  box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5);
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+.con:hover,
+.container:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 10px 20px 2px rgba(0, 0, 0, 0.25);
+}
+.con:hover{
+  transform: translateY(-5px);
+  box-shadow: 0px 10px 20px 2px rgba(0, 0, 0, 0.25);
 }
 
-  
-.container {
-    background-color:silver;
-    width: 450px;
-    height: 480px;
-    border-radius: 20px;
-    margin-top: 150px;
-    margin-left: 36%;
+.container:hover{
+  transform: translateY(-5px);
+  box-shadow: 0px 10px 20px 2px rgba(0, 0, 0, 0.25);
 
-  }
-  
-.container p {
-    justify-content: center;
-    margin-top: 20px;
-    font-style: italic;
-    text-align: center;
-    
-  }
-
-.container button{
+}
+.container a{
+    position: absolute;
     border: none;
     height: 49px;
-    width: 150px;
+    width: 170px;
     background: goldenrod;
     color: white;
     cursor: pointer;
     transition: 0.2s ease-in-out;
     border-radius: 12px;
-    margin-left: 150px;
-    margin-top: 100px;
-  }
-  
+    margin-left: 30%;
+    margin-top: -93px;
+    font-family: "Montserrat", sans-serifs;
+    text-decoration: none;
 
-  
-button:hover {
-    background-color: gold;
-    color: white;
+   
+  }
+.container img{
+  width: 450px;
+  height: 100%;
+  border-radius: 20px;  
+}
+.con img{
+  width: 450px;
+    height: 100%;
+    border-radius: 20px;
+
+}
+.con a{
+  position: absolute;
+  border: none;
+  height: 49px;
+  width: 150px;
+  background: goldenrod;
+  color: white;
+  cursor: pointer;
+  transition: 0.2s ease-in-out;
+  border-radius: 12px;
+  margin-left: 30%;
+  margin-top: -93px;
+  font-family: "Montserrat", sans-serifs;
+  text-decoration: none;
+  text-align: center;
 }
 
-footer {
-    text-align: center;
-    padding: 9px;
-    background-color: whitesmoke;
-    margin-top: 10%;
 
-  }
+
+
+.navitems{
+  margin-top: -42px;
+  margin-left: 140px;
+  font-family: "Montserrat", sans-serifs;
+
+}
+
+.head-fruit{
+  font-family: "Montserrat", sans-serifs;
+  font-size: 50px;
+  padding: 5px 40px ;
+}
+
+.card-fruit{
+  display: flex;
+  box-shadow: black;
+}
+
+.card1{
+  background-color: wheat;
+  height: 280px;
+  width: 250px;
+  padding: 10px;
+  margin-left: 40px;
+  border-radius: 5%;
+  margin-top: 20px;
+  text-align: center;
+}
+.card1 h3{
+  display: block;
+}
+.card1 p{
+  display: inline;
+
+}
+.card1 button{
+  display: block;
+  background-color: red;
+  border-radius: 5px;
+  height: 28px;
+  margin-left: 70px;
+  margin-top: 10px;
+  color: white;
+  width:90px;
+  border: 0.5px solid white;
+}
+
+.card2{
+  background-color: wheat;
+  height: 280px;
+  width: 250px;
+  padding: 10px;
+  margin-left: 35px;
+  border-radius: 5%;
+  margin-top: 20px;
+  text-align: center;
+}
+
+.card2 h3{
+  display: block;
+}
+.card2 p{
+  display: inline;
+
+}
+.card2 button{
+  display: block;
+  background-color: red;
+  border-radius: 5px;
+  height: 28px;
+  margin-left: 70px;
+  margin-top: 10px;
+  color: white;
+  width:90px;
+  border: 0.5px solid white;
+}
+
+.card3{
+  background-color: wheat;
+  height: 280px;
+  width: 250px;
+  padding: 10px;
+  margin-left: 35px;
+  border-radius: 5%;
+  margin-top: 20px;
+  text-align: center;
+}
+
+.card3 h3{
+  display: block;
+}
+.card3 p{
+  display: inline;
+
+}
+.card3 button{
+  display: block;
+  background-color: red;
+  border-radius: 5px;
+  height: 28px;
+  margin-left: 70px;
+  margin-top: 10px;
+  color: white;
+  width:90px;
+  border: 0.5px solid white;
+}
+
+.card4{
+  background-color: wheat;
+  height: 280px;
+  width: 250px;
+  padding: 10px;
+  margin-left: 35px;
+  border-radius: 5%;
+  margin-top: 20px;
+  text-align: center;
+}
+
+.card4 h3{
+  display: block;
+}
+.card4 p{
+  display: inline;
+
+}
+.card4 button{
+  display: block;
+  background-color: red;
+  border-radius: 5px;
+  height: 28px;
+  margin-left: 70px;
+  margin-top: 10px;
+  color: white;
+  width:90px;
+  border: 0.5px solid white;
+}
+.card5{
+  background-color: wheat;
+  height: 280px;
+  width: 250px;
+  padding: 10px;
+  margin-left: 35px;
+  border-radius: 5%;
+  margin-top: 20px;
+  text-align: center;
+}
+
+.card5 h3{
+  display: block;
+}
+.card5 p{
+  display: inline;
+
+}
+.card5 button{
+  display: block;
+  background-color: red;
+  border-radius: 5px;
+  height: 28px;
+  margin-left: 70px;
+  margin-top: 10px;
+  color: white;
+  width:90px;
+  border: 0.5px solid white;
+}
+
+
+
+
+.head-vegetable{
+  font-family: "Montserrat", sans-serifs;
+  font-size: 50px;
+  padding: 5px 40px ;
+}
+
+.card-vegetable{
+  display: flex;
+  box-shadow: black;
+}
+
+.card1{
+  background-color: wheat;
+  height: 280px;
+  width: 250px;
+  padding: 10px;
+  margin-left: 40px;
+  border-radius: 5%;
+  margin-top: 20px;
+  text-align: center;
+}
+.card1 h3{
+  display: block;
+}
+.card1 p{
+  display: inline;
+
+}
+.card1 button{
+  display: block;
+  background-color: red;
+  border-radius: 5px;
+  height: 28px;
+  margin-left: 70px;
+  margin-top: 10px;
+  color: white;
+  width:90px;
+  border: 0.5px solid white;
+}
+
+.card2{
+  background-color: wheat;
+  height: 280px;
+  width: 250px;
+  padding: 10px;
+  margin-left: 35px;
+  border-radius: 5%;
+  margin-top: 20px;
+  text-align: center;
+}
+
+.card2 h3{
+  display: block;
+}
+.card2 p{
+  display: inline;
+
+}
+.card2 button{
+  display: block;
+  background-color: red;
+  border-radius: 5px;
+  height: 28px;
+  margin-left: 70px;
+  margin-top: 10px;
+  color: white;
+  width:90px;
+  border: 0.5px solid white;
+}
+
+.card3{
+  background-color: wheat;
+  height: 280px;
+  width: 250px;
+  padding: 10px;
+  margin-left: 35px;
+  border-radius: 5%;
+  margin-top: 20px;
+  text-align: center;
+}
+
+.card3 h3{
+  display: block;
+}
+.card3 p{
+  display: inline;
+
+}
+.card3 button{
+  display: block;
+  background-color: red;
+  border-radius: 5px;
+  height: 28px;
+  margin-left: 70px;
+  margin-top: 10px;
+  color: white;
+  width:90px;
+  border: 0.5px solid white;
+}
+
+.card4{
+  background-color: wheat;
+  height: 280px;
+  width: 250px;
+  padding: 10px;
+  margin-left: 35px;
+  border-radius: 5%;
+  margin-top: 20px;
+  text-align: center;
+}
+
+.card4 h3{
+  display: block;
+}
+.card4 p{
+  display: inline;
+
+}
+.card4 button{
+  display: block;
+  background-color: red;
+  border-radius: 5px;
+  height: 28px;
+  margin-left: 70px;
+  margin-top: 10px;
+  color: white;
+  width:90px;
+  border: 0.5px solid white;
+}
+.card5{
+  background-color: wheat;
+  height: 280px;
+  width: 250px;
+  padding: 10px;
+  margin-left: 35px;
+  border-radius: 5%;
+  margin-top: 20px;
+  text-align: center;
+}
+
+.card5 h3{
+  display: block;
+}
+.card5 p{
+  display: inline;
+
+}
+.card5 button{
+  display: block;
+  background-color: red;
+  border-radius: 5px;
+  height: 28px;
+  margin-left: 70px;
+  margin-top: 10px;
+  color: white;
+  width:90px;
+  border: 0.5px solid white;
+}
+
+
+
+
+
+

@@ -11,13 +11,15 @@
 	</title>
 
 	<style>
+		@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
 		/* Styling the Body element i.e. Color,
 		Font, Alignment */
 		body {
 			background-color: whitesmoke;
-			font-family: Verdana;
+			font-family: "Montserrat", sans-serifs;
 			text-align: center;
+			font-size: bold;
 		}
 
 		/* Styling the Form (Color, Padding, Shadow) */
@@ -35,13 +37,11 @@
 			margin-bottom: 25px;
 		}
 
-		/* Styling form-control Label */
 		.form-control label {
 			display: block;
 			margin-bottom: 10px;
 		}
 
-		/* Styling form-control input,
 		select, textarea */
 		.form-control input,
 		.form-control select,
@@ -62,9 +62,8 @@
 			width: auto;
 		}
 
-		/* Styling Button */
 		button {
-			background-color: #05c46b;
+			background-color: #1c4301;
 			border: 1px solid #777;
 			border-radius: 2px;
 			font-family: inherit;
@@ -80,7 +79,6 @@
 <body>
 	<h1>Add Your Product</h1>
 
-	<!-- Create Form -->
 	
 		<form id="form" method="POST" >
 		<!-- Details -->
@@ -92,7 +90,7 @@
 			<!-- Input Type Text -->
 			<input type="text"
 				id="name"
-				placeholder="Enter name of Your product" />
+				placeholder="" />
 		</div>
 
 
@@ -104,20 +102,35 @@
 			
 			<input type="Number"
 				id="size"
-				placeholder="Size of your product in kg's" />
+				placeholder="In kg's" />
+		</div>
+
+		
+		<div class="form-control">
+			<label for="Price" id="label-Price"> 
+				Price
+			</label>
+
+			<!-- Input Type Text -->
+			<input type="Number"
+				id="Price"
+				placeholder=" In Rs" />
 		</div>
 
 		<div class="form-control">
-			<label for="role" id="label-role">
-				Which product is it?
+			<label for="Descp" id="label-Descp">
+				Description
 			</label>
-			
-			
-			<select name="role" id="role">
-				<option value="Vegetabels">Vegetables</option>
-				<option value="Fruits">Fruits</option>
-			</select>
+
+			<!-- Input Type Text -->
+			<input type="text"
+				id="Descp"
+				placeholder=" " />
 		</div>
+
+
+		
+
 
 		<!-- Multi-line Text Input Control -->
 		<button type="submit" value="submit">
