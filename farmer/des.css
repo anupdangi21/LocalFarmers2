@@ -147,3 +147,330 @@ a:hover::before {
   font-family: "Montserrat", sans-serifs;
 
 }
+
+.head-fruit{
+  font-family: "Montserrat", sans-serifs;
+  font-size: 50px;
+  padding: 5px 40px ;
+}
+
+.card-fruit{
+  display: flex;
+  box-shadow: black;
+}
+
+.card1{
+  background-color: wheat;
+  height: 280px;
+  width: 250px;
+  padding: 10px;
+  margin-left: 40px;
+  border-radius: 5%;
+  margin-top: 20px;
+  text-align: center;
+}
+.card1 h3{
+  display: block;
+}
+.card1 p{
+  display: inline;
+
+}
+.card1 button{
+  display: block;
+  background-color: red;
+  border-radius: 5px;
+  height: 28px;
+  margin-left: 70px;
+  margin-top: 10px;
+  color: white;
+  width:90px;
+  border: 0.5px solid white;
+}
+
+.card2{
+  background-color: wheat;
+  height: 280px;
+  width: 250px;
+  padding: 10px;
+  margin-left: 35px;
+  border-radius: 5%;
+  margin-top: 20px;
+  text-align: center;
+}
+
+.card2 h3{
+  display: block;
+}
+.card2 p{
+  display: inline;
+
+}
+.card2 button{
+  display: block;
+  background-color: red;
+  border-radius: 5px;
+  height: 28px;
+  margin-left: 70px;
+  margin-top: 10px;
+  color: white;
+  width:90px;
+  border: 0.5px solid white;
+}
+
+.card3{
+  background-color: wheat;
+  height: 280px;
+  width: 250px;
+  padding: 10px;
+  margin-left: 35px;
+  border-radius: 5%;
+  margin-top: 20px;
+  text-align: center;
+}
+
+.card3 h3{
+  display: block;
+}
+.card3 p{
+  display: inline;
+
+}
+.card3 button{
+  display: block;
+  background-color: red;
+  border-radius: 5px;
+  height: 28px;
+  margin-left: 70px;
+  margin-top: 10px;
+  color: white;
+  width:90px;
+  border: 0.5px solid white;
+}
+
+.card4{
+  background-color: wheat;
+  height: 280px;
+  width: 250px;
+  padding: 10px;
+  margin-left: 35px;
+  border-radius: 5%;
+  margin-top: 20px;
+  text-align: center;
+}
+
+.card4 h3{
+  display: block;
+}
+.card4 p{
+  display: inline;
+
+}
+.card4 button{
+  display: block;
+  background-color: red;
+  border-radius: 5px;
+  height: 28px;
+  margin-left: 70px;
+  margin-top: 10px;
+  color: white;
+  width:90px;
+  border: 0.5px solid white;
+}
+.card5{
+  background-color: wheat;
+  height: 280px;
+  width: 250px;
+  padding: 10px;
+  margin-left: 35px;
+  border-radius: 5%;
+  margin-top: 20px;
+  text-align: center;
+}
+
+.card5 h3{
+  display: block;
+}
+.card5 p{
+  display: inline;
+
+}
+.card5 button{
+  display: block;
+  background-color: red;
+  border-radius: 5px;
+  height: 28px;
+  margin-left: 70px;
+  margin-top: 10px;
+  color: white;
+  width:90px;
+  border: 0.5px solid white;
+}
+
+
+
+
+.head-vegetable{
+  font-family: "Montserrat", sans-serifs;
+  font-size: 50px;
+  padding: 5px 40px ;
+}
+
+.card-vegetable{
+  display: flex;
+  box-shadow: black;
+}
+
+.card1{
+  background-color: wheat;
+  height: 280px;
+  width: 250px;
+  padding: 10px;
+  margin-left: 40px;
+  border-radius: 5%;
+  margin-top: 20px;
+  text-align: center;
+}
+.card1 h3{
+  display: block;
+}
+.card1 p{
+  display: inline;
+
+}
+.card1 button{
+  display: block;
+  background-color: red;
+  border-radius: 5px;
+  height: 28px;
+  margin-left: 70px;
+  margin-top: 10px;
+  color: white;
+  width:90px;
+  border: 0.5px solid white;
+}
+
+.card2{
+  background-color: wheat;
+  height: 280px;
+  width: 250px;
+  padding: 10px;
+  margin-left: 35px;
+  border-radius: 5%;
+  margin-top: 20px;
+  text-align: center;
+}
+
+.card2 h3{
+  display: block;
+}
+.card2 p{
+  display: inline;
+
+}
+.card2 button{
+  display: block;
+  background-color: red;
+  border-radius: 5px;
+  height: 28px;
+  margin-left: 70px;
+  margin-top: 10px;
+  color: white;
+  width:90px;
+  border: 0.5px solid white;
+}
+
+.card3{
+  background-color: wheat;
+  height: 280px;
+  width: 250px;
+  padding: 10px;
+  margin-left: 35px;
+  border-radius: 5%;
+  margin-top: 20px;
+  text-align: center;
+}
+
+.card3 h3{
+  display: block;
+}
+.card3 p{
+  display: inline;
+
+}
+.card3 button{
+  display: block;
+  background-color: red;
+  border-radius: 5px;
+  height: 28px;
+  margin-left: 70px;
+  margin-top: 10px;
+  color: white;
+  width:90px;
+  border: 0.5px solid white;
+}
+
+.card4{
+  background-color: wheat;
+  height: 280px;
+  width: 250px;
+  padding: 10px;
+  margin-left: 35px;
+  border-radius: 5%;
+  margin-top: 20px;
+  text-align: center;
+}
+
+.card4 h3{
+  display: block;
+}
+.card4 p{
+  display: inline;
+
+}
+.card4 button{
+  display: block;
+  background-color: red;
+  border-radius: 5px;
+  height: 28px;
+  margin-left: 70px;
+  margin-top: 10px;
+  color: white;
+  width:90px;
+  border: 0.5px solid white;
+}
+.card5{
+  background-color: wheat;
+  height: 280px;
+  width: 250px;
+  padding: 10px;
+  margin-left: 35px;
+  border-radius: 5%;
+  margin-top: 20px;
+  text-align: center;
+}
+
+.card5 h3{
+  display: block;
+}
+.card5 p{
+  display: inline;
+
+}
+.card5 button{
+  display: block;
+  background-color: red;
+  border-radius: 5px;
+  height: 28px;
+  margin-left: 70px;
+  margin-top: 10px;
+  color: white;
+  width:90px;
+  border: 0.5px solid white;
+}
+
+
+
+
+
+
