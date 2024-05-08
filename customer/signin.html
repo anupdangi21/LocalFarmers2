@@ -10,7 +10,9 @@
 <body>
     <nav>
         <ul>
-            <li class="logo"><img src="images/logo.png" alt="Logo"></li>
+
+            <li class="logo"><img src="/logo.png" alt="Logo"></li>
+
           <div class="items">
           <li><a href="customer1.html">Home</a></li>
           <li><a href="catagories.html">Categories</a></li>
@@ -28,14 +30,14 @@
       </nav>
       <div class="loginbox">
         <div class="loginform">
-            <form>
+            <form action="/submit" method="post">
                 <h1>Login</h1>
                 <div class="inputbox">
-                    <input type="text" placeholder="Username" required>
+                    <input type="text" name="username" placeholder="Username" required>
                     <i class="fa-solid fa-user"></i>
                 </div>
                 <div class="inputbox">
-                    <input type="password" placeholder="Password" required>
+                    <input type="password" name="password" placeholder="Password" required>
                     <i class="fa-solid fa-lock"></i>
                 </div>
                 <div class="rem">

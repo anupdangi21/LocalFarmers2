@@ -89,62 +89,37 @@
 
 <body>
 	<h1>Add Your Product</h1>
-
-	
-		<form id="form" method="POST" >
+		<form action="/submit" method="post">
 		<!-- Details -->
 		<div class="form-control">
 			<label for="name" id="label-name">
 				Name of Vegetables
 			</label>
-
 			<!-- Input Type Text -->
-			<input type="text"
-				id="name"
-				placeholder="" />
+			<input type="text" name="name" placeholder="" />
 		</div>
-
-
 		<div class="form-control">
 			<label for="size" id="label-size">
 				Size
 			</label>
-
-			
-			<input type="Number"
-				id="size"
-				placeholder="In kg's" />
+			<input type="Number" name="quantity" placeholder="In kg's" />
 		</div>
-
-		
 		<div class="form-control">
 			<label for="Price" id="label-Price"> 
 				Price
 			</label>
-
 			<!-- Input Type Text -->
-			<input type="Number"
-				id="Price"
-				placeholder=" In Rs" />
+			<input type="Number" name="price" placeholder=" In Dollars" />
 		</div>
-
 		<div class="form-control">
 			<label for="Descp" id="label-Descp">
 				Description
 			</label>
-
 			<!-- Input Type Text -->
-			<input type="text"
-				id="Descp"
-				placeholder=" " />
+			<input type="text" name="description" placeholder=" " />
 		</div>
-
-
-		
-
-
 		<!-- Multi-line Text Input Control -->
-		<button type="submit" value="submit">
+		<button type="submit">
 			Submit
 		</button>
 	</form>
