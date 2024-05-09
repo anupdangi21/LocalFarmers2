@@ -3,7 +3,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const path = require('path');
-
+const farmerApp = require('./farmer.js');
 
 const app = express();
 
@@ -18,9 +18,9 @@ mongoose.connect('mongodb+srv://anupdangi28:farmers123@localfarmersapp.8bbteeb.m
   console.error('Error connecting to MongoDB:', err);
 });
 
-const farmerApp = require('./farmer');
 const adminApp = require('./admin');
 
+app.use('/farmer', farmerApp);
 //schema for admin
 const  AdminSchema = new mongoose.Schema({
     username : String,
@@ -39,15 +39,22 @@ const registerUserSchema = new mongoose.Schema({
     email:String,
     username:String,
     password:String
-})
+});
+
+//creating the schema for the customers feedbacks
+const feedbackSchema= new mongoose.Schema ({
+    improvements: String,
+    suggestions:String
+});
 
 const admins = mongoose.model('admin', AdminSchema); //for admin
 const LoginData = mongoose.model('LoginData', loginDataSchema); //for login
 const RegisterLoginData = mongoose.model('userRegister', registerUserSchema); //for registration
+const  Product = mongoose.model("feedback", feedbackSchema);//for customer feedback
 
 app.use('/customer', express.static(path.join(__dirname, 'customer')));
 app.use('/admin', express.static(path.join(__dirname, 'admin')));
-app.use('/farmer', express.static(path.join(__dirname,'farmer')))
+app.use('/farmer', express.static(path.join(__dirname,'farmer')));
 
 app.get("/", function(req, res){
     res.sendFile(__dirname + '/customer/customer1.html');
@@ -131,6 +138,17 @@ app.post('/supplier', async function(req, res) {
     }
 });
 
+//for saving the customer feedback into the db
+app.post('/send', function(req, res) {
+   let newFeedbacks = new Product({
+    improvements: req.body.improve,
+    suggestions: req.body.suggest  
+   });
+   newFeedbacks.save();
+//    console.log(newFeedbacks);
+   return res.redirect("/customer1.html")
+});
+
 // app.use(express.static(__dirname + '/customer'));
 let publicPath = path.join(__dirname ,  'customer');
 console.log(publicPath);
@@ -148,7 +166,6 @@ app.get('/catagories ', (req, res) => {
 app.get('/about ', (req, res) => {
     res.sendFile(`${publicPath}/about.html`);
 });
-
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log(`Server is running on port http://localhost:${PORT}`));
