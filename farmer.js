@@ -6,8 +6,7 @@ const path = require('path');
 
 const app = express();
 
-// app.set('view engine', 'ejs');
-
+// app.set('view engine', 'ejs')
 app.use(bodyParser.urlencoded({ extended: true }));
 
 
@@ -50,5 +49,16 @@ app.post('/submit', function(req, res) {
     console.log(newProduct);
     return res.redirect("/main.html")
 });
+// app.post('/fruit', function(req, res) {
+//     let newProduct = new Product({
+//         name: req.body.name,
+//         quantity:req.body.quantity,
+//         price:req.body.price,
+//         description:req.body.description
+//     })
+//     newProduct.save();
+//     console.log(newProduct);
+//     return res.redirect("/main.html")
+// });
 //exporting the files
 module.exports = app; 
