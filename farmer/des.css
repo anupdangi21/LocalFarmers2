@@ -34,6 +34,24 @@
       
   }
 
+.topnav button{
+  background-color: gold;
+  height: 35px;
+  border-radius: 5px;
+  width: 65px;
+  border: 1px solid gold;
+  color: white;
+  margin-left: 490px;
+  font-family: "Montserrat", sans-serifs;
+  font-size: 12px;
+  transition: background-color 0.4s ease;
+}
+
+.topnav button:hover{
+  background-color: red;
+  border: 1px solid red;
+}
+
 .topnav img{
     border-radius: 6.5px;
 }
