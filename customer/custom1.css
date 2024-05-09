@@ -435,3 +435,80 @@ nav ul .searchicon .icon{
         color: #333;
         font-weight: 600;
     }
+
+    /* .about h2{
+      text-align: center;
+    } */
+
+    .about {
+      text-align: center;
+      margin-top: 30px;
+  }
+  
+  .about p {
+      text-align: justify;
+      display: inline-block;
+  }
+
+  .contact{
+    display: block;
+    text-align: center;
+    margin-top: -40px;
+  }
+
+  .contact i{
+    font-size: 20px;
+  }
+
+  .or{
+    font-weight: 500;
+  }
+
+  .number{
+    font-weight: 600;
+  }
+
+  .feedbackbox{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 70px;
+}
+
+.feedbackform{
+    width: 420px;
+    background: rgb(53, 122, 80);
+    color: #f2f2f2;
+    border-radius: 10px;
+    padding: 30px 40px;
+    margin-top: -40px;
+}
+
+.feedbackform h1{
+    font-size: 35px;
+    text-align: center;
+}
+
+.feedbackform .inputbox{
+    width: 100%;
+    height: 50px;
+    position: relative;
+    margin: 30px 0;
+}
+
+.feedbackform .btnlogin{
+  width: 100%;
+  height: 45px;
+  background: #fff;
+  border: none;
+  outline: none;
+  border-radius: 40px;
+  cursor: pointer;
+  font-size: 16px;
+  color: #333;
+  font-weight: 600;
+}
+
+.about p{
+  margin-top: 5px;
+}
