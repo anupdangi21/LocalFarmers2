@@ -1,26 +1,15 @@
 //importing all the necessary modules
 const express = require('express');
-const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const path = require('path');
-const farmerApp = require('./farmer.js');
-
-const app = express();
-
-app.use(bodyParser.urlencoded({ extended: true }));
-
-// MongoDB connection
-mongoose.connect('mongodb+srv://anupdangi28:farmers123@localfarmersapp.8bbteeb.mongodb.net/users')
-.then(() => {
-  console.log('Connected to MongoDB');
-})
-.catch((err) => {
-  console.error('Error connecting to MongoDB:', err);
-});
-
+const mongoose = require('./connection');
+// const farmerApp = require('./farmer');
 const adminApp = require('./admin');
 
-app.use('/farmer', farmerApp);
+const app = express();
+// app.use('/farmer', farmerApp);
+app.use(bodyParser.urlencoded({ extended: true }));
+
 //schema for admin
 const  AdminSchema = new mongoose.Schema({
     username : String,
@@ -47,10 +36,38 @@ const feedbackSchema= new mongoose.Schema ({
     suggestions:String
 });
 
+//schema for the supplier
+const supplierSchema = new mongoose.Schema({
+    fullname: String,
+    email: String,
+    password: String,
+    username: String,
+    companyname: String
+});
+
+//schema for the products
+const productSchema = new mongoose.Schema ({
+    name : String,
+    quantity : Number,
+    price: String,
+    description: String
+});
+
+//schema for the fruits
+const fruitSchema = new mongoose.Schema ({
+    name : String,
+    quantity : Number,
+    price: String,
+    description: String
+});
+
+
 const admins = mongoose.model('admin', AdminSchema); //for admin
 const LoginData = mongoose.model('LoginData', loginDataSchema); //for login
 const RegisterLoginData = mongoose.model('userRegister', registerUserSchema); //for registration
-const  Product = mongoose.model("feedback", feedbackSchema);//for customer feedback
+const Products = mongoose.model("veg", productSchema); //for products
+const fruit = mongoose.model("fruit", productSchema); //for fruits
+const Supplier = mongoose.model('Supplier', supplierSchema);//for supplier
 
 app.use('/customer', express.static(path.join(__dirname, 'customer')));
 app.use('/admin', express.static(path.join(__dirname, 'admin')));
@@ -109,16 +126,7 @@ app.post('/register', async function(req, res) {
     }
 });
 
-//schema for the supplier
-const supplierSchema = new mongoose.Schema({
-    fullname: String,
-    email: String,
-    password: String,
-    username: String,
-    companyname: String
-});
-
-const Supplier = mongoose.model('Supplier', supplierSchema);
+//for registring the suppliers
 app.post('/supplier', async function(req, res) {
     const { fullname, email, password, username, companyname } = req.body;
     if (fullname && email && password && username && companyname) {
@@ -145,9 +153,33 @@ app.post('/send', function(req, res) {
     suggestions: req.body.suggest  
    });
    newFeedbacks.save();
-//    console.log(newFeedbacks);
    return res.redirect("/customer1.html")
 });
+
+//for the veg products
+app.post('/submit', function(req, res) {
+    let newVeg = new Products({
+        name: req.body.name,
+        quantity:req.body.quantity,
+        price:req.body.price,
+        description:req.body.description
+    })
+    newVeg.save();
+    // console.log(newVeg);
+    return res.redirect("/farmer/main.html")
+ });
+ //for the fruits
+ app.post('/fruit', function(req, res) {
+    let newFruits = new fruit({
+        name: req.body.name,
+        quantity:req.body.quantity,
+        price:req.body.price,
+        description:req.body.description
+    })
+    newFruits.save();
+    // console.log(newFruits);
+    return res.redirect("/farmer/main.html")
+ });
 
 // app.use(express.static(__dirname + '/customer'));
 let publicPath = path.join(__dirname ,  'customer');
