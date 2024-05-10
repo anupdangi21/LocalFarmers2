@@ -8,30 +8,52 @@
     <title>Farmer's Market</title>
     <link rel="stylesheet" href="des.css">
 </head>
+
 <body>
     <div class="topnav">
         <img src="k.png" alt="Logo">
         <div class="navitems">
             <a href="main.html">Home</a>
             <a href="myproduct.html">My Product</a>
-            <button> Sign out</button>
-            
+            <button id="signout-button">Sign out</button>
         </div>
     </div>
+    <div class="vid"> 
+       
+        <video autoplay muted loop >
+            <source src="l.mp4" type="video/mp4">
+            <source src="l.webm" type="video/webm">
+            </video>
+
+            <h2 class="video-overlay">Welcome to Farmer Dashboard</h2>        </div>
+
     <div class="container-wrapper">
         <div class="container">
             <img src="veg.jpg" alt="Logo">
             <div class="but">
-                <a href="veg.html">Add Your Vegetables</a>
+                <button id="vegetable">Add Your Vegetables</button>
             </div>
         </div>
         <div class="con">
             <img src="fruit.jpg" alt="Logo">
             <div class="butt">
-                <a href="fruit.html">Add Your Fruits</a>
+                <button id="fru">Add Your Fruits</button>
             </div>
         </div>
     </div>
+    <script>
+        document.getElementById("signout-button").addEventListener("click", function() {
+            window.location.href = "LOCALFARMERS2/customer/customer1.html";
+        });
+
+        document.getElementById("vegetable").addEventListener("click", function() {
+            window.location.href = "veg.html";
+        });
+
+        document.getElementById("fru").addEventListener("click", function() {
+            window.location.href = "fruit.html";
+        });
+    </script>
 </body>
 
 </html>
