@@ -83,33 +83,51 @@
             height: 50px;
             color: white;
 		}
+		
+		.l img{
+			height: 30px;
+			width: 30px;
+			float: left;
+			margin-left: 25px;
+			margin-top: 20px;
+
+		}
+		.l img:hover{
+			transform: scale(1.2); /* Increase the size of the logo on hover */
+			transition: transform 0.4s ease-in-out; /* Add a smooth transition effect */;
+		  }
+
+
 
 	</style>
 </head>
 
 <body>
+	<div class="l">
+		<a href="main.html">
+		<img src="back.png" alt="logo"> </a></div>
 	<h1>Add Your Product</h1>
-		<form action="/submit" method="post">
+		<form   action="/veg" method="post" onsubmit="sumbitForm(event)">
 		<!-- Details -->
 		<div class="form-control">
 			<label for="name" id="label-name">
 				Name of Vegetables
 			</label>
 			<!-- Input Type Text -->
-			<input type="text" name="name" placeholder="" />
+			<input type="text" name="name" placeholder="" required>
 		</div>
 		<div class="form-control">
 			<label for="size" id="label-size">
 				Size
 			</label>
-			<input type="Number" name="quantity" placeholder="In kg's" />
+			<input type="Number" name="quantity" placeholder="In kg's" required>
 		</div>
 		<div class="form-control">
 			<label for="Price" id="label-Price"> 
 				Price
 			</label>
 			<!-- Input Type Text -->
-			<input type="Number" name="price" placeholder=" In Dollars" />
+			<input type="Number" name="price" placeholder=" In Dollars" required>
 		</div>
 		<div class="form-control">
 			<label for="Descp" id="label-Descp">
@@ -119,10 +137,20 @@
 			<input type="text" name="description" placeholder=" " />
 		</div>
 		<!-- Multi-line Text Input Control -->
-		<button type="submit">
+		<button type="submit" value="submit" onclick="showMessage()">
 			Submit
 		</button>
+
 	</form>
+
+	<script>
+		function showMessage(){
+			alert("Your Vegetable has been added")
+			document.getElementById("f").reset();
+		}
+
+	
+	</script>
 </body>
 
 </html>
