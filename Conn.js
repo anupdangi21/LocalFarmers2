@@ -60,14 +60,21 @@ const fruitSchema = new mongoose.Schema ({
     price: String,
     description: String
 });
-
+//schema for the myproducts
+const myCart = new mongoose.Schema({
+    S_N: String,
+    productname: String,
+    price: Number
+}) 
 
 const admins = mongoose.model('admin', AdminSchema); //for admin
 const LoginData = mongoose.model('LoginData', loginDataSchema); //for login
 const RegisterLoginData = mongoose.model('userRegister', registerUserSchema); //for registration
 const Products = mongoose.model("veg", productSchema); //for products
-const fruit = mongoose.model("fruit", productSchema); //for fruits
+const fruit = mongoose.model("fruit", fruitSchema); //for fruits
 const Supplier = mongoose.model('Supplier', supplierSchema);//for supplier
+const review = mongoose.model('feedbacks', feedbackSchema); //for feedbacks
+// const cart = mongoose.model('myProducts', myCartSchema); //for the mycart
 
 app.use('/customer', express.static(path.join(__dirname, 'customer')));
 app.use('/admin', express.static(path.join(__dirname, 'admin')));
@@ -151,7 +158,7 @@ app.post('/supplier', async function(req, res) {
 
 //for saving the customer feedback into the db
 app.post('/send', function(req, res) {
-   let newFeedbacks = new Product({
+   let newFeedbacks = new review({
     improvements: req.body.improve,
     suggestions: req.body.suggest  
    });
@@ -183,6 +190,14 @@ app.post('/veg', function(req, res) {
     // console.log(newFruits);
     return res.redirect("/farmer/main.html")
  });
+// for the mycart
+// app.post('/add', function(req,res){
+//     let newCart = new myCart({
+        
+//     })
+// })
+
+
 
 // app.use(express.static(__dirname + '/customer'));
 let publicPath = path.join(__dirname ,  'customer');

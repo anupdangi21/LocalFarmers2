@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const fs = require('fs');
 
 const app = express();
-const PORT = process.env.PORT || 80;
+const PORT = process.env.PORT || 800;
 
 // Connect to MongoDB using Mongoose
 mongoose.connect('mongodb+srv://anupdangi28:farmers123@localfarmersapp.8bbteeb.mongodb.net/users', {
@@ -17,26 +17,24 @@ mongoose.connect('mongodb+srv://anupdangi28:farmers123@localfarmersapp.8bbteeb.m
     console.error('Error connecting to MongoDB:', err);
 });
 
-// Define schema for the collection
-    const supplierSchema = new mongoose.Schema({
-        fullname: String,
-        email: String,
-        password: String,
-        username: String,
-        companyname: String
-    });
+//schema for the veg products
+//creating the schema for the customers feedbacks
+const feedbackSchema= new mongoose.Schema ({
+    improvements: String,
+    suggestions:String
+});
 
 // Define the model
-const Supplier = mongoose.model('Supplier', supplierSchema);
+const Supplier = mongoose.model('feedbacks', feedbackSchema);
 
 // Endpoint to export MongoDB data to a JSON file
-app.get('/export', async (req, res) => {
+app.get('/feedback', async (req, res) => {
     try {
         // Get all documents from the collection
         const documents = await Supplier.find({});
 
         // Write documents to a JSON file
-        const outputFilePath = './admin/output.json';
+        const outputFilePath = './admin/review.json';
         fs.writeFileSync(outputFilePath, JSON.stringify(documents));
 
         // Send success response with the file path
