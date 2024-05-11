@@ -85,13 +85,16 @@ app.post('/signin', async function(req, res) {
             const user = await LoginData.findOne({ username, password }).exec();
             const admin = await admins.findOne({ username, password }).exec();
             const register = await RegisterLoginData.findOne({username, password}).exec();
+            const farmer = await Supplier.findOne({username, password}).exec();
             if (user) {
                 return res.redirect("/customer/afterlogin.html");
             } else if (admin) {
                 return res.redirect("./admin/admin.html");
             } else if (register) {
                 return res.redirect("/customer/afterlogin.html");
-            } else {
+            } else if (farmer) {
+                return res.redirect("./farmer/main.html");
+            }else {
                 return res.status(400).send('Missing username or password');
             }
         } else {
@@ -139,7 +142,7 @@ app.post('/supplier', async function(req, res) {
         });
         await newSupplier.save();
         console.log("Supplier registered successfully");
-        return res.redirect("/farmer/main.html");
+        return res.redirect("/customer/afterlogin.html");
     } else {
         console.log("Something error"); 
         return res.status(400).send('Missing required fields');
