@@ -67,16 +67,16 @@
         </main>
     </div>
     <script>
-                // Fetch data from output.json file
-                fetch('/admin/output.json')
+        // Fetch data from output.json file
+        fetch('/admin/output.json')
             .then(response => response.json())
             .then(data => {
                 // Get the table body element
                 const tbody = document.querySelector('#farmer-table tbody');
-    
+
                 // Get the top 5 recent items from the data array
                 const top5Recent = data.slice(-5);
-    
+
                 // Iterate over the top 5 recent items
                 top5Recent.forEach(item => {
                     const tr = document.createElement('tr');
