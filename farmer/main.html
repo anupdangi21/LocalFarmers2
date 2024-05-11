@@ -15,7 +15,7 @@
         <div class="navitems">
             <a href="main.html">Home</a>
             <a href="myproduct.html">My Product</a>
-            <button id="signout-button">Sign out</button>
+            <button id="log-out">Sign out</button>
         </div>
     </div>
     <div class="vid"> 
@@ -42,9 +42,15 @@
         </div>
     </div>
     <script>
-        document.getElementById("signout-button").addEventListener("click", function() {
-            window.location.href = "LOCALFARMERS2/customer/customer1.html";
-        });
+        function logout(event) {
+    event.preventDefault(); // Prevent the default behavior of the link
+    if (window.confirm("Are you sure you want to exit?")) {
+        // Redirect to /customer/customer.html
+        window.location.href = '/customer/customer1.html';
+    }
+}
+// Attach click event listener to the logout link
+document.getElementById('log-out').addEventListener('click', logout);
 
         document.getElementById("vegetable").addEventListener("click", function() {
             window.location.href = "veg.html";
