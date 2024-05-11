@@ -1,25 +1,14 @@
 //importing all the necessary modules
 const express = require('express');
-const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const path = require('path');
-
+const mongoose = require('./connection');
+// const farmerApp = require('./farmer');
+const adminApp = require('./admin');
 
 const app = express();
-
+// app.use('/farmer', farmerApp);
 app.use(bodyParser.urlencoded({ extended: true }));
-
-// MongoDB connection
-mongoose.connect('mongodb+srv://anupdangi28:farmers123@localfarmersapp.8bbteeb.mongodb.net/users')
-.then(() => {
-  console.log('Connected to MongoDB');
-})
-.catch((err) => {
-  console.error('Error connecting to MongoDB:', err);
-});
-
-const farmerApp = require('./farmer');
-const adminApp = require('./admin');
 
 //schema for admin
 const  AdminSchema = new mongoose.Schema({
@@ -39,15 +28,50 @@ const registerUserSchema = new mongoose.Schema({
     email:String,
     username:String,
     password:String
-})
+});
+
+//creating the schema for the customers feedbacks
+const feedbackSchema= new mongoose.Schema ({
+    improvements: String,
+    suggestions:String
+});
+
+//schema for the supplier
+const supplierSchema = new mongoose.Schema({
+    fullname: String,
+    email: String,
+    password: String,
+    username: String,
+    companyname: String
+});
+
+//schema for the products
+const productSchema = new mongoose.Schema ({
+    name : String,
+    quantity : Number,
+    price: String,
+    description: String
+});
+
+//schema for the fruits
+const fruitSchema = new mongoose.Schema ({
+    name : String,
+    quantity : Number,
+    price: String,
+    description: String
+});
+
 
 const admins = mongoose.model('admin', AdminSchema); //for admin
 const LoginData = mongoose.model('LoginData', loginDataSchema); //for login
 const RegisterLoginData = mongoose.model('userRegister', registerUserSchema); //for registration
+const Products = mongoose.model("veg", productSchema); //for products
+const fruit = mongoose.model("fruit", productSchema); //for fruits
+const Supplier = mongoose.model('Supplier', supplierSchema);//for supplier
 
 app.use('/customer', express.static(path.join(__dirname, 'customer')));
 app.use('/admin', express.static(path.join(__dirname, 'admin')));
-app.use('/farmer', express.static(path.join(__dirname,'farmer')))
+app.use('/farmer', express.static(path.join(__dirname,'farmer')));
 
 app.get("/", function(req, res){
     res.sendFile(__dirname + '/customer/customer1.html');
@@ -102,16 +126,7 @@ app.post('/register', async function(req, res) {
     }
 });
 
-//schema for the supplier
-const supplierSchema = new mongoose.Schema({
-    fullname: String,
-    email: String,
-    password: String,
-    username: String,
-    companyname: String
-});
-
-const Supplier = mongoose.model('Supplier', supplierSchema);
+//for registring the suppliers
 app.post('/supplier', async function(req, res) {
     const { fullname, email, password, username, companyname } = req.body;
     if (fullname && email && password && username && companyname) {
@@ -131,6 +146,41 @@ app.post('/supplier', async function(req, res) {
     }
 });
 
+//for saving the customer feedback into the db
+app.post('/send', function(req, res) {
+   let newFeedbacks = new Product({
+    improvements: req.body.improve,
+    suggestions: req.body.suggest  
+   });
+   newFeedbacks.save();
+   return res.redirect("/customer1.html")
+});
+
+//for the veg products
+app.post('/submit', function(req, res) {
+    let newVeg = new Products({
+        name: req.body.name,
+        quantity:req.body.quantity,
+        price:req.body.price,
+        description:req.body.description
+    })
+    newVeg.save();
+    // console.log(newVeg);
+    return res.redirect("/farmer/main.html")
+ });
+ //for the fruits
+ app.post('/fruit', function(req, res) {
+    let newFruits = new fruit({
+        name: req.body.name,
+        quantity:req.body.quantity,
+        price:req.body.price,
+        description:req.body.description
+    })
+    newFruits.save();
+    // console.log(newFruits);
+    return res.redirect("/farmer/main.html")
+ });
+
 // app.use(express.static(__dirname + '/customer'));
 let publicPath = path.join(__dirname ,  'customer');
 console.log(publicPath);
@@ -148,7 +198,6 @@ app.get('/catagories ', (req, res) => {
 app.get('/about ', (req, res) => {
     res.sendFile(`${publicPath}/about.html`);
 });
-
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log(`Server is running on port http://localhost:${PORT}`));
