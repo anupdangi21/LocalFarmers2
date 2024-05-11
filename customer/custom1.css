@@ -581,3 +581,28 @@ nav ul .searchicon .icon{
 .sub-menu-link:hover p{
   font-weight: 600;
 }
+
+
+table {
+  margin: 50px auto; 
+  border-collapse: collapse; 
+  width: 80%; 
+}
+
+
+th {
+  background-color: #46916f; 
+  padding: 12px 15px; 
+  text-align: left; 
+}
+
+
+td {
+  padding: 10px 15px; 
+  text-align: left; 
+}
+
+
+tr{
+  background-color: #46916f; 
+}

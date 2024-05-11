@@ -1,23 +1,22 @@
-
 let subMenu = document.getElementById("subMenu");
 
 function toggleMenu(){
     subMenu.classList.toggle("open-menu");
 }
 
-// Select all 'Add to Cart' buttons
-const addToCartButtons = document.querySelectorAll('.add-to-cart-button');
+// Select all 'Add to Cart' buttons for fruits
+const addToCartButtons = document.querySelectorAll('.fruit-container .add-to-cart-button');
 
-// Add event listener to each button
+// Add event listener to each button for fruits
 addToCartButtons.forEach(button => {
     button.addEventListener('click', addToCart);
 });
 
-// Function to handle 'Add to Cart' button click
+// Function to handle 'Add to Cart' button click for fruits
 function addToCart(event) {
-    const vegItem = event.target.closest('.veg-item'); // Get the closest parent with class '.veg-item'
-    const vegName = vegItem.querySelector('.veg-name').textContent; // Extract vegetable name
-    const vegPrice = vegItem.querySelector('.veg-price').textContent; // Extract vegetable price
+    const fruitItem = event.target.closest('.fruit-item'); // Get the closest parent with class '.fruit-item'
+    const fruitName = fruitItem.querySelector('.fruit-name').textContent; // Extract fruit name
+    const fruitPrice = fruitItem.querySelector('.fruit-price').textContent; // Extract fruit price
 
     // Create a new row in the table
     const table = document.querySelector('table tbody');
@@ -26,8 +25,8 @@ function addToCart(event) {
     // Add data to the new row
     newRow.innerHTML = `
         <td>${table.rows.length}</td>
-        <td>${vegName}</td>
-        <td>${vegPrice}</td>
+        <td>${fruitName}</td>
+        <td>${fruitPrice}</td>
         <td><button class="remove-button">Remove</button></td> <!-- Add remove button -->
     `;
 
