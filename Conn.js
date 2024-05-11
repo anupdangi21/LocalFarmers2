@@ -157,7 +157,7 @@ app.post('/send', function(req, res) {
 });
 
 //for the veg products
-app.post('/submit', function(req, res) {
+app.post('/veg', function(req, res) {
     let newVeg = new Products({
         name: req.body.name,
         quantity:req.body.quantity,

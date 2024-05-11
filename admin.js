@@ -18,7 +18,7 @@ app.get('/', (req, res) => {
     res.sendFile(`${publicPath}/admin.html`);
 }); 
 
-app.get('/approvals.e ', (req, res) => {
+app.get('/approvals ', (req, res) => {
     res.sendFile(`${publicPath}/catagories.html`);
 });
 app.get('/about ', (req, res) => {
