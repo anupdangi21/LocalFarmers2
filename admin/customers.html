@@ -58,15 +58,13 @@
                         <th>Overall Users:</th>
                         <th>Total Active Users</th>
                         <th>Highest sold Product Type</th>
-                        <th>hello</th>
                         <th>Total Reviews</th>
                     </tr>
                     <tbody>
                         <tr>
-                            <td>12,000</td>
-                            <td>8,567</td>
+                            <td>7</td>
+                            <td>3</td>
                             <td>Apple</td>
-                            <td>hi</td>
                             <td>4.3</td>
                         </tr>
                     </tbody>
@@ -74,58 +72,17 @@
             </div>
             <div class="recent_5_customers">
                 <h1>Top 5 Customers:</h1>
-                <table>
+                <table id="customer-table">
                     <thead>
                         <tr>
-                            <th>customer Name</th>
-                            <th>Product Type</th>
-                            <th>Quantity</th>
-                            <th>Phone Number</th>
-                            <th>Price</th>
-                            <th>Reviews</th>
+                            <th>customer Name:</th>
+                            <th>Email:</th>
+                            <th>Username:</th>
+                            <th>Password:</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>Rubin Dhakal</td>
-                            <td>Fruits</td>
-                            <td>5kg</td>
-                            <td>98xxxxxxxx</td>
-                            <td>$45.75</td>
-                            <td>4.5</td>
-                        </tr>
-                        <tr>
-                            <td>Sangam Dumre</td>
-                            <td>Vegetables</td>
-                            <td>4kg</td>
-                            <td>98xxxxxxxx</td>
-                            <td>$40.00</td>
-                            <td>4.5</td>
-                        </tr>
-                        <tr>
-                            <td>Abrian Bajracharya</td>
-                            <td>Fruits</td>
-                            <td>5kg</td>
-                            <td>98xxxxxxxx</td>
-                            <td>$45.75</td>
-                            <td>4.5</td>
-                        </tr>
-                        <tr>
-                            <td>kulbhusan Basnet</td>
-                            <td>Fruits</td>
-                            <td>5kg</td>
-                            <td>98xxxxxxxx</td>
-                            <td>$45.75</td>
-                            <td>4.5</td>
-                        </tr>
-                        <tr>
-                            <td>AnupDangi</td>
-                            <td>Fruits</td>
-                            <td>5kg</td>
-                            <td>98xxxxxxxx</td>
-                            <td>$45.75</td>
-                            <td>4.5</td>
-                        </tr>
+                    <!-- data will dynamically be fetched  -->
                     </tbody>
                 </table>
             </div>
@@ -134,6 +91,30 @@
     </div>
     <!-- <script type="text/javascript" src=""> </script>  -->
     <script>
+        fetch('/admin/overallcustomer.json')
+            .then(response => response.json())
+            .then(data => {
+                // Get the table body element
+                const tbody = document.querySelector('#customer-table tbody');
+
+                // Get the top 5 recent items from the data array
+                const top5Recent = data.slice(-5);
+
+                // Iterate over the top 5 recent items
+                top5Recent.forEach(item => {
+                    const tr = document.createElement('tr');
+                    tr.innerHTML = `
+                        <td>${item.name}</td>
+                        <td>${item.email}</td>
+                        <td>${item.username}</td>
+                        <td>${item.password}</td>
+                    `;
+                    tbody.appendChild(tr);
+                });
+            })
+            .catch(error => console.error('Error fetching data:', error));
+
+
         function logout(event) {
             event.preventDefault(); // Prevent the default behavior of the link
             if (window.confirm("Are you sure you want to exit?")) {
@@ -141,7 +122,6 @@
                 window.location.href = '/customer/customer1.html';
             }
         }
-
         // Attach click event listener to the logout link
         document.getElementById('log-out').addEventListener('click', logout);
     </script>
