@@ -230,7 +230,7 @@ a:hover::before {
 }
 
 .card1{
-  background-color: white;
+  background-color: #4CAF50;
   height: 280px;
   width: 250px;
   padding: 10px;
@@ -257,11 +257,11 @@ a:hover::before {
   margin-top: 10px;
   color: white;
   width:90px;
-  border: 0.5px solid white;
+  border: 0.5px solid red;
 }
 
 .card2{
-  background-color: wheat;
+  background-color: #4CAF50;
   height: 280px;
   width: 250px;
   padding: 10px;
@@ -289,11 +289,11 @@ a:hover::before {
   margin-top: 10px;
   color: white;
   width:90px;
-  border: 0.5px solid white;
+  border: 0.5px solid red;
 }
 
 .card3{
-  background-color: wheat;
+  background-color: #4CAF50;
   height: 280px;
   width: 250px;
   padding: 10px;
@@ -321,11 +321,11 @@ a:hover::before {
   margin-top: 10px;
   color: white;
   width:90px;
-  border: 0.5px solid white;
+  border: 0.5px solid red;
 }
 
 .card4{
-  background-color: wheat;
+  background-color: #4CAF50;
   height: 280px;
   width: 250px;
   padding: 10px;
@@ -353,10 +353,10 @@ a:hover::before {
   margin-top: 10px;
   color: white;
   width:90px;
-  border: 0.5px solid white;
+  border: 0.5px solid red;
 }
 .card5{
-  background-color: wheat;
+  background-color: #4CAF50;
   height: 280px;
   width: 250px;
   padding: 10px;
@@ -384,7 +384,7 @@ a:hover::before {
   margin-top: 10px;
   color: white;
   width:90px;
-  border: 0.5px solid white;
+  border: 0.5px solid red;
 }
 
 
@@ -404,7 +404,7 @@ a:hover::before {
 }
 
 .card1{
-  background-color: wheat;
+  background-color: #4CAF50;
   height: 280px;
   width: 250px;
   padding: 10px;
@@ -431,11 +431,11 @@ a:hover::before {
   margin-top: 10px;
   color: white;
   width:90px;
-  border: 0.5px solid white;
+  border: 0.5px solid red;
 }
 
 .card2{
-  background-color: wheat;
+  background-color: #4CAF50;
   height: 280px;
   width: 250px;
   padding: 10px;
@@ -463,11 +463,11 @@ a:hover::before {
   margin-top: 10px;
   color: white;
   width:90px;
-  border: 0.5px solid white;
+  border: 0.5px solid red;
 }
 
 .card3{
-  background-color: wheat;
+  background-color: #4CAF50;
   height: 280px;
   width: 250px;
   padding: 10px;
@@ -495,11 +495,11 @@ a:hover::before {
   margin-top: 10px;
   color: white;
   width:90px;
-  border: 0.5px solid white;
+  border: 0.5px solid red;
 }
 
 .card4{
-  background-color: wheat;
+  background-color: #4CAF50;
   height: 280px;
   width: 250px;
   padding: 10px;
@@ -527,10 +527,10 @@ a:hover::before {
   margin-top: 10px;
   color: white;
   width:90px;
-  border: 0.5px solid white;
+  border: 0.5px solid red;
 }
 .card5{
-  background-color: wheat;
+  background-color: #4CAF50;
   height: 280px;
   width: 250px;
   padding: 10px;
@@ -558,7 +558,7 @@ a:hover::before {
   margin-top: 10px;
   color: white;
   width:90px;
-  border: 0.5px solid white;
+  border: 0.5px solid red;
 }
 
 
