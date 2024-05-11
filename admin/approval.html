@@ -70,77 +70,63 @@
             </div>
             <div class="recent-approvals">
                 <h1>Recent Approvals</h1>
-                <table>
+                <table id="approval-table">
                     <thead>
                         <tr>
                             <th>customer Name</th>
-                            <th>Categories</th>
-                            <th>Education</th>
-                            <th>Phone Number</th>
-                            <th>Address</th>
+                            <th>Email</th>
+                            <th>Company Name:</th>
                             <th>Status</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>Rubin Dhakal</td>
-                            <td>Fruits</td>
-                            <td>+2</td>
-                            <td>98xxxxxxxx</td>
-                            <td>Syambhu</td>
-                            <td><button>Approve</button>
-                                <button>Reject</button>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td>Sangam Dumre</td>
-                            <td>Vegetables</td>
-                            <td>+2</td>
-                            <td>98xxxxxxxx</td>
-                            <td>Buddhanagar</td>
-                            <!-- <td><button>Approve</button>
-                                <button>Reject</button>
-                            </td> -->
-                        </tr>
-
-                        <tr>
-                            <td>Abrian Bajracharya</td>
-                            <td>Fruits</td>
-                            <td>11</td>
-                            <td>98xxxxxxxx</td>
-                            <td>Chakupat</td>
-                            <!-- <td><button>Approve</button>
-                                <button>Reject</button>
-                            </td> -->
-                        </tr>
-
-                        <tr>
-                            <td>kulbhusan Basnet</td>
-                            <td>Fruits</td>
-                            <td>+2</td>
-                            <td>98xxxxxxxx</td>
-                            <td>Kuleshwor</td>>
-                            <!-- <td><button>Approve</button>
-                                <button>Reject</button>
-                            </td> -->
-                        </tr>
-                        <tr>
-                            <td>AnupDangi</td>
-                            <td>Fruits</td>
-                            <td>+2</td>
-                            <td>98xxxxxxxx</td>
-                            <td>Kaushaltar</td>
-                            <!-- <td><button>Approve</button>
-                                <button>Reject</button>
-                            </td> -->
-                        </tr>
                     </tbody>
                 </table>
             </div>
         </main>
     </div>
     <script>
+        // Fetch data from output.json file
+        fetch('/admin/output.json')
+            .then(response => response.json())
+            .then(data => {
+                // Get the table body element
+                const tbody = document.querySelector('#approval-table tbody');
+
+                // Get the top 5 recent items from the data array
+                const top5Recent = data.slice(-5);
+
+                // Iterate over the top 5 recent items
+                top5Recent.forEach(item => {
+                    const tr = document.createElement('tr');
+                    tr.innerHTML = `
+                <td>${item.fullname}</td>
+                <td>${item.email}</td>
+                <td>${item.companyname}</td>
+                <td> <!-- Buttons for Approve/Reject -->
+                    <button onclick="approve('${item._id}')">Approve</button>
+                    <button onclick="reject('${item._id}')">Reject</button>
+                </td>
+            `;
+                    tbody.appendChild(tr);
+                });
+            })
+            .catch(error => console.error('Error fetching data:', error));
+
+
+        // Function to handle approve button click
+        function approve(id) {
+            // Implement your approve logic here
+            console.log('Approved:', id);
+        }
+
+        // Function to handle reject button click
+        function reject(id) {
+            // Implement your reject logic here
+            console.log('Rejected:', id);
+        }
+
+        // Function to handle logout
         function logout(event) {
             event.preventDefault(); // Prevent the default behavior of the link
             if (window.confirm("Are you sure you want to exit?")) {

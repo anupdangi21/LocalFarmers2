@@ -48,40 +48,15 @@
             <h1>Viewing the customers feedbacks and improvement areas</h1>
             <div class="recent_farmers">
                 <h2>Recent reviews:</h2>
-                <table>
+                <table id="feedback">
                     <thead>
                         <tr>
-                            <th>customer Name</th>
-                            <th>k kura ma defect xa</th>
-                            <th>k improvement garna sakinxa</th>
+                            <th>Improvements:</th>
+                            <th>Suggestions:</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>Abrian Bajracharya</td>
-                            <td>i am seeing the unmanaged categories</td>
-                            <td>you can centre the categores section</td>
-                        </tr>
-                        <tr>
-                            <td> </td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td> </td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
+                    
                     </tbody>
                 </table>
             </div>
@@ -89,6 +64,27 @@
 
     </div>
     <script>
+        // Fetch data from output.json file
+        fetch('/admin/review.json')
+            .then(response => response.json())
+            .then(data => {
+                // Get the table body element
+                const tbody = document.querySelector('#feedback tbody');
+
+                // Get the top 5 recent items from the data array
+                const top5Recent = data.slice(-5);
+
+                top5Recent.forEach(item => {
+                    const tr = document.createElement('tr');
+                    tr.innerHTML = `
+                <td>${item.improvements}</td>
+                <td>${item.suggestions}</td>
+            `;
+                    tbody.appendChild(tr);
+                });
+            })
+            .catch(error => console.error('Error fetching data:', error));
+        // Function to handle logout
         function logout(event) {
             event.preventDefault(); // Prevent the default behavior of the link
             if (window.confirm("Are you sure you want to exit?")) {

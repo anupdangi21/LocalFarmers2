@@ -149,24 +149,10 @@
             <!--//top end -->
             <div class="recent_updates">
                 <h2>Recents Approvals</h2>
-                <div class="updates">
-                    <div class="update">
-                        <div class="message">
-                            <p><b>Name</b>Requested for approval </p>
-                        </div>
-                    </div>
-                    <div class="update">
-                        <div class="message">
-                            <p><b>Name</b>Requested for approval</p>
-                        </div>
-                    </div>
-                    <div class="update">
-                        <div class="message">
-                            <p><b>Name</b>Requested for approval</p>
-                        </div>
-                    </div>
+                <div class="updates" id="updates-container">
+                    <!-- //data will come dynamically here -->
                 </div>
-            </div>
+                
             <!-- recent updates div ended here -->
 
             <!--Sale analytics started here  -->
@@ -203,6 +189,37 @@
         </div>
     </div>
     <script>
+        fetch('/admin/output.json')
+    .then(response => response.json())
+    .then(data => {
+        // Get the container element
+        const container = document.querySelector('#updates-container');
+
+        // Get the top 3 recent items from the data array
+        const top3Recent = data.slice(-3);
+
+        // Iterate over the top 3 recent items and populate the container
+        top3Recent.forEach(item => {
+            // Create a new update element
+            const updateDiv = document.createElement('div');
+            updateDiv.classList.add('update');
+
+            // Create a message paragraph and populate it with data
+            const message = document.createElement('div');
+            message.classList.add('message');
+            message.innerHTML = `<p><b>${item.fullname}</b> Requested for approval</p>`;
+
+            // Append message to the update element
+            updateDiv.appendChild(message);
+
+            // Append update element to the container
+            container.appendChild(updateDiv);
+        });
+    })
+    .catch(error => console.error('Error fetching data:', error));
+
+
+
         function logout(event) {
             event.preventDefault(); // Prevent the default behavior of the link
             if (window.confirm("Are you sure you want to exit?")) {
