@@ -45,7 +45,7 @@ const supplierSchema = new mongoose.Schema({
     companyname: String
 });
 
-//schema for the products
+//schema for the veg products
 const productSchema = new mongoose.Schema ({
     name : String,
     quantity : Number,
