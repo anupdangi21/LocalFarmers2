@@ -27,8 +27,3 @@ app.get('/about ', (req, res) => {
 
 module.exports = app; 
 
-
-// app.get('/approval', function(req, res) {
-//     // Render the approval.ejs file
-//     res.render('approval');
-// });
