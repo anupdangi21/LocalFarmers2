@@ -606,3 +606,14 @@ td {
 tr{
   background-color: #46916f; 
 }
+
+.checkout-button {
+  padding: 5px 10px;
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    height: 34px;
+    margin-left: 84px;
+}
