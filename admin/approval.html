@@ -92,41 +92,40 @@
             .then(data => {
                 // Get the table body element
                 const tbody = document.querySelector('#approval-table tbody');
-
+    
                 // Get the top 5 recent items from the data array
                 const top5Recent = data.slice(-5);
-
+    
                 // Iterate over the top 5 recent items
                 top5Recent.forEach(item => {
                     const tr = document.createElement('tr');
                     tr.innerHTML = `
-                <td>${item.fullname}</td>
-                <td>${item.email}</td>
-                <td>${item.companyname}</td>
-                <td> <!-- Buttons for Approve/Reject -->
-                    <button onclick="approve('${item._id}')">Approve</button>
-                    <button onclick="reject('${item._id}')">Reject</button>
-                </td>
-            `;
+                        <td>${item.fullname}</td>
+                        <td>${item.email}</td>
+                        <td>${item.companyname}</td>
+                        <td> <!-- Status column with static buttons -->
+                            <button class="approve-btn" onclick="approve('${item._id}', this)">Approve</button>
+                            <button class="reject-btn" onclick="reject('${item._id}', this)">Reject</button>
+                        </td>
+                    `;
                     tbody.appendChild(tr);
                 });
             })
             .catch(error => console.error('Error fetching data:', error));
-
-
-        // Function to handle approve button click
-        function approve(id) {
-            // Implement your approve logic here
-            console.log('Approved:', id);
+    
+        // Function to handle approval
+        function approve(id, button) {
+            // Update the content of the button's parent element to "Approved"
+            button.parentNode.textContent = 'Approved';
+        }
+    
+        // Function to handle rejection
+        function reject(id, button) {
+            // Update the content of the button's parent element to "Rejected"
+            button.parentNode.textContent = 'Rejected';
         }
 
-        // Function to handle reject button click
-        function reject(id) {
-            // Implement your reject logic here
-            console.log('Rejected:', id);
-        }
-
-        // Function to handle logout
+        // logout function to handle the logout logic
         function logout(event) {
             event.preventDefault(); // Prevent the default behavior of the link
             if (window.confirm("Are you sure you want to exit?")) {
@@ -134,8 +133,6 @@
                 window.location.href = '/customer/customer1.html';
             }
         }
-
-        // Attach click event listener to the logout link
         document.getElementById('log-out').addEventListener('click', logout);
     </script>
 </body>
