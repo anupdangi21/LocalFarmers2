@@ -80,7 +80,7 @@ app.use('/customer', express.static(path.join(__dirname, 'customer')));
 app.use('/admin', express.static(path.join(__dirname, 'admin')));
 app.use('/farmer', express.static(path.join(__dirname,'farmer')));
 
-app.get("/", function(req, res){
+app.get("/", function(req, res){ 
     res.sendFile(__dirname + '/customer/customer1.html');
 });
 

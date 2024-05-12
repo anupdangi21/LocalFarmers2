@@ -151,41 +151,8 @@
                 <h2>Recents Approvals</h2>
                 <div class="updates" id="updates-container">
                     <!-- //data will come dynamically here -->
-                </div>
-                
+                </div>    
             <!-- recent updates div ended here -->
-
-            <!--Sale analytics started here  -->
-            <div class="sales_analytics">
-                <h2>Sales Analytics</h2>
-                <div class="item">
-                    <div class="icon">
-                        <span class="material-symbols-sharp">shopping_cart</span>
-                    </div>
-                    <div class="right_text">
-                        <div class="info">
-                            <h3>Online Orders</h3>
-                            <small class="text-muted">Last seen 2 hours ago</small>
-                        </div>
-                        <h5 class="negative">-17%</h5>
-                        <h3>3000</h3>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="icon">
-                        <span class="material-symbols-sharp">shopping_cart</span>
-                    </div>
-                    <div class="right_text">
-                        <div class="info">
-                            <h3>Online Orders</h3>
-                            <small class="text-muted">Last seen 15 minutes ago</small>
-                        </div>
-                        <h5 class="negative">-17%</h5>
-                        <h3>3000</h3>
-                    </div>
-                </div>
-            </div>
-            <!--Sale analytics started here  -->
         </div>
     </div>
     <script>
@@ -195,10 +162,10 @@
         // Get the container element
         const container = document.querySelector('#updates-container');
 
-        // Get the top 3 recent items from the data array
-        const top3Recent = data.slice(-3);
+        // Get the  recent Approvals from the data array
+        const top3Recent = data.slice(-10);
 
-        // Iterate over the top 3 recent items and populate the container
+        // Iterate over the top 10 recent arrovals and populate the container
         top3Recent.forEach(item => {
             // Create a new update element
             const updateDiv = document.createElement('div');
