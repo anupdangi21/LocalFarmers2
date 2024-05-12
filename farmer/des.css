@@ -563,6 +563,24 @@ a:hover::before {
 
 
 
+/* css for the table in my products */
+.fruits{
+  background-color: var(--clr-white);
+  width: 120%;
+  border-radius: var(--card-border-radius);
+  padding: 0.8rem;
+  text-align: center;
+  box-shadow: var(--box-shadow);
+  transition: all .3s ease;
+
+}
+.fruits tr{
+  height: 1.8rem;
+  margin-bottom: 1px solid var(--clr-white);
+  color: var(--clr-dark-variant);
+}
+
+
 
 
 
