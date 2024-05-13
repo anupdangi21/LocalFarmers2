@@ -48,7 +48,7 @@
       </nav>
       <div class="fruit-container">
         <div class="fruit-item">
-          <h2 class="fruit-name">Apple</h2>
+          <h2 class="fruit-name-apple"></h2>
 
           <img src="/apple.png" class="fruit-image" alt="Apple">
 
@@ -57,7 +57,7 @@
         </div>
     
         <div class="fruit-item">
-            <h2 class="fruit-name">Banana</h2>
+            <h2 class="fruit-name-banana">Banana</h2>
 
             <img src="/banana.png" class="fruit-image" alt="Apple">
 
@@ -66,7 +66,7 @@
           </div>
 
           <div class="fruit-item">
-            <h2 class="fruit-name">Papaya</h2>
+            <h2 class="fruit-name-papaya">Papaya</h2>
 
             <img src="/papaya.png" class="fruit-image" alt="Apple">
 
@@ -75,7 +75,7 @@
           </div>
 
           <div class="fruit-item">
-            <h2 class="fruit-name">Pomegranate</h2>
+            <h2 class="fruit-name-pomp">Pomegranate</h2>
 
             <img src="/pome.png" class="fruit-image" alt="Apple">
 
@@ -84,7 +84,7 @@
           </div>
 
           <div class="fruit-item">
-            <h2 class="fruit-name">Strawberry</h2>
+            <h2 class="fruit-name-straw">Strawberry</h2>
 
             <img src="/straw.png" class="fruit-image" alt="Apple">
 
@@ -115,6 +115,24 @@
     <p>Checked Out</p>
   </div>
 </div>
-      <script src="fruit.js"></script>
+<script src="fruit.js"></script>
+<script>
+  fetch('/customer/fruit.json')
+  .then(response => response.json())
+  .then((data) => {
+      const fruitItems = document.querySelectorAll(".fruit-item");
+      data.forEach((item, index) => {
+          const fruitNameElement = fruitItems[index].querySelector("h2");
+          const fruitPriceElement = fruitItems[index].querySelector("p");
+          fruitNameElement.textContent = item.name;
+          fruitPriceElement.textContent = item.price;
+      });
+  })
+  .catch(error => console.error('Error fetching data:', error));
+</script>
+
+
+
+      </script>
 </body>
 </html>
