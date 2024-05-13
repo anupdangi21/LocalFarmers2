@@ -15,7 +15,8 @@ addToCartButtons.forEach(button => {
 // Function to handle 'Add to Cart' button click for fruits
 function addToCart(event) {
     const fruitItem = event.target.closest('.fruit-item'); // Get the closest parent with class '.fruit-item'
-    const fruitName = fruitItem.querySelector('.fruit-name').textContent; // Extract fruit name
+    const fruitName = fruitItem.querySelector('.fruit-name-apple').textContent; // Extract fruit name
+    // const fruitNameapple = fruitItem.querySelector('.fruit-name-apple').textContent;
     const fruitPrice = fruitItem.querySelector('.fruit-price').textContent; // Extract fruit price
 
     // Create a new row in the table
@@ -43,7 +44,6 @@ function removeCartItem(event) {
 
 const checkoutButtons = document.querySelectorAll('.checkout-button');
 
-// Loop through all checkout buttons and attach event listener to each
 checkoutButtons.forEach(button => {
     button.addEventListener("click", function() {
         // Select the table body

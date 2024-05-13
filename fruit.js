@@ -36,7 +36,7 @@ app.get('/fruit', async (req, res) => {
         const documents = await Supplier.find({});
 
         // Write documents to a JSON file
-        const outputFilePath = 'fruit.json';
+        const outputFilePath = './customer/fruit.json';
         fs.writeFileSync(outputFilePath, JSON.stringify(documents));
 
         // Send success response with the file path
