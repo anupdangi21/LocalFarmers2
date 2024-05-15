@@ -49,6 +49,7 @@
   }
 
   .con button{
+
     position: absolute;
     border: none;
     height: 49px;
@@ -68,12 +69,13 @@
     background-color: gold;
     color: white;
 }
+
 .topnav button{
-  background-color: gold;
+  background-color:#1c4301;
   height: 35px;
   border-radius: 5px;
   width: 60px;
-  border: 1px solid gold;
+  border: 1px solid #1c4301 ;
   color: white;
   margin-left: 360px;
   font-family: "Montserrat", sans-serifs;
